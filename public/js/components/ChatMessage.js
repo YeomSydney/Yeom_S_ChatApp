@@ -7,7 +7,7 @@ export default {
     <article :class="{ 'other-messages' : matchedID }">
         <p>{{ message.name }} <span>{{ message.time }}</span></p>
         <p>{{ message.text }}</p>
-        <p>{{ message.content }}</p>
+        <!-- <p>{{ message.content }}</p> -->
     </article>
     `,
 

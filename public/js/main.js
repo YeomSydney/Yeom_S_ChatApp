@@ -2,6 +2,8 @@
 import ChatMsg from './components/ChatMessage.js';
 
 const socket = io();
+
+// New functions
 const chatForm = document.getElementById('chat_form');
 const chatMessages = document.querySelector('.chat_messages');
 

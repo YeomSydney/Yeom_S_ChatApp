@@ -1,15 +1,18 @@
+const express = require('express');
+const app = express();
+
 const path = require('path');
 const http = require('http');
 
-const express = require('express');
-
-const app = express();
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-const formatMessage = require('./public/js/components/fortmatMessage.js');
+
+// New Functions
+const FormatMessage = require('./public/js/components/fortmatMessage.js');
 const chatBot = 'Chat Bot';
 
+// Port
 const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
@@ -17,7 +20,8 @@ server.listen(port, () => {
 });
 
 // Tell express where to find static web files.
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes go here
 // app.get is a route handler
@@ -36,17 +40,17 @@ io.on('connection', socket => {
     socket.emit('connected', { sID: socket.id, message: 'new connection' });
     
     // ChatBot Welcoming new user
-    socket.emit('message', formatMessage(chatBot, 'Welcome to ChatCord!'));
+    socket.emit('message', FormatMessage(chatBot, 'Welcome to The Chat!'));
 
     // Listen for new messages.
     socket.on('chat_message', function(msg) {
         console.log(msg);
-        // io.emit('new_message', formatMessage(chatBot, { message: msg }));
-        io.emit('message', formatMessage(chatBot, { message: msg }));
+        // io.emit('new_message', FormatMessage(chatBot, { message: msg }));
+        io.emit('message', FormatMessage('USER', { message: msg }));
     });
 
     // Broadcast when a user connects with specific info - time, date...
-    socket.broadcast.emit('message', formatMessage(chatBot, 'A user has joined the chat.'));
+    socket.broadcast.emit('message', FormatMessage(chatBot, 'Hello! A user joined the chat.'));
 
     // User typing
     socket.on('user_typing', function(user) {
@@ -55,8 +59,7 @@ io.on('connection', socket => {
     });
 
     // User left
-    socket.on('disconnect', function(user) {
-      console.log(user);
-      io.emit('message', formatMessage(chatBot, 'A user has left the chat.'));
+    socket.on('disconnect', () => {
+      io.emit('message', FormatMessage(chatBot, 'See you again! A user left the chat.'));
   });
 });
