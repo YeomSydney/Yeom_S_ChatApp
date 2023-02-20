@@ -3,7 +3,6 @@ const app = express();
 
 const path = require('path');
 const http = require('http');
-
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
@@ -16,7 +15,7 @@ const chatBot = 'Chat Bot';
 const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Listening on ${port}`);
 });
 
 // Tell express where to find static web files.
@@ -25,7 +24,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes go here
 // app.get is a route handler
-// req : request
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
@@ -35,7 +33,7 @@ app.get('/chat', (req, res) => {
 });
 
 // socket.io stuff goes here
-io.on('connection', socket => {
+io.on('connection', (socket) => {
     console.log('A User Joined...');
     socket.emit('connected', { sID: socket.id, message: 'new connection' });
     
@@ -45,11 +43,11 @@ io.on('connection', socket => {
     // Listen for new messages.
     socket.on('chat_message', function(msg) {
         console.log(msg);
-        // io.emit('new_message', FormatMessage(chatBot, { message: msg }));
-        io.emit('message', FormatMessage('USER', { message: msg }));
+        io.emit('message', FormatMessage('User', msg));
     });
 
     // Broadcast when a user connects with specific info - time, date...
+    // User joined
     socket.broadcast.emit('message', FormatMessage(chatBot, 'Hello! A user joined the chat.'));
 
     // User typing

@@ -17,18 +17,21 @@
             <a href="/" class="leaveRoom">Leave Room</a>
         </div>
 
-        <div class="chat_messages">
-            <ul id="messages">
-                <newmsg v-for="message in messages" :message="message"></newmsg>
-            </ul>
-        </div>
-
-        <div class="chat_container">
-            <form id="chat_form">
-                <input type="text" id="chat_msg" class="type_message" @focus="catchTextFocus" v-model="message" placeholder="Enter Message..." required autocomplete="off">
-                <button class="send_msg" @click.prevent="dispatchMessage" type="submit" value="Send">Send</button>
-            </form>
-        </div>
+        <section class="chat">
+            <div class="chat_messages">
+                <ul id="messages">
+                    <!-- <newmsg v-for="message in messages" :message="message"></newmsg> -->
+                </ul>
+            </div>
+    
+            <div class="chat_container">
+                <form id="chat_form">
+                    <input type="text" id="chat_msg" class="type_message" @focus="catchTextFocus" v-model="message" placeholder="Enter Message..." required autocomplete="off">
+                    
+                    <button class="send_msg" @click.prevent="dispatchMessage" type="submit" value="Send">Send</button>
+                </form>
+            </div>
+        </section>
     </main>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
