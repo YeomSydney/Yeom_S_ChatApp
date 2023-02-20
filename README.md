@@ -17,13 +17,25 @@ implement.
 ## Writer
 Seunghyeon Yeom (0975764)
 
+## Access
+* Port: 3000
+
 ## Installation
 * Socket.io (https://socket.io/)
 * NPM (https://www.npmjs.com/)
     > Express
-    
+
     > Moment
 * Vue (https://vuejs.org/)
+
+## New Socket Functions
+* Giving Time
+> (Year, Month, Date, Hour, Minutes - AM/PM Format)
+
+* Chat Bot
+> Welcoming new users.
+
+> Saying goodbye to users when they leave the chat.
 
 ## MIT License
 Copyright 2023 Seunghyeon Yeom
