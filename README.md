@@ -3,11 +3,11 @@
 ## Description
 Use Node, Express and Vue with socket.io to create a live interactive chat application. We will
 continue exploring components, APIs etc with a brief intro to Node and NPM.
-<br>
+
 We’ll be building most of this in class as an intro to Node. The back end / API will be pretty
 lightweight, which gives you lots of time to think about other features to include as a more
 complete application.
-<br>
+
 Expand on the default functionality / class build. You could add (or finish) the login page / user
 registration, include a notification message when a user leaves the chat, or add the ability to
 add a custom avatar per user.
@@ -21,6 +21,7 @@ Seunghyeon Yeom (0975764)
 * Socket.io (https://socket.io/)
 * NPM (https://www.npmjs.com/)
     > Express
+    
     > Moment
 * Vue (https://vuejs.org/)
 
