@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- remixicon cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <title>Chat App</title>
+</head>
+
+<body>
+    <h1 class="hidden">Chat App</h1>
+
+    <main id="app">
+        <form class="entrance" action="/chat">
+            <!-- <form class="entrance"> -->
+            <h2>Welcome To ChatApp</h2>
+
+            <!-- User Inputs -->
+            <section class="userinfo_inputs">
+                <div class="userinfo_username">
+                    <label for="username">Your Username</label>
+                    <input type="text" name="username" class="username" id="username" placeholder="Enter Your Username" v-model="username" required>
+                </div>
+    
+                <div class="userinfo_room">
+                    <label for="room">Select Your Room</label>
+                    <select name="room" id="room">
+                        <option value="choose_room">Choose Your Room...</option>
+                        <option value="a">a</option>
+                        <option value="b">b</option>
+                        <option value="c">c</option>
+                        <option value="d">d</option>
+                        <option value="e">e</option>
+                    </select>
+                </div>
+            </section>
+
+            <section>
+                <h2>Ready to join the chat?</h2>
+            </section>
+
+            <!-- Solving Error -->
+            <section class="hidden" id="chat_form"></section>
+            <section class="hidden chat_messages"></section>
+            <!-- Solving Error -->
+
+            <button type="submit" class="submit_btn">Join Chat</button>
+        </form>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="/js/main.js" type="module" defer></script>
+</body>
+</html>

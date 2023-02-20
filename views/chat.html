@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- remixicon cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <title>Chat App</title>
+</head>
+<body>
+    <main id="app">
+        <div class="chatApp_header">
+            <div class="chatApp_logo"></div>
+            <a href="/" class="leaveRoom">Leave Room</a>
+        </div>
+
+        <section class="chat">
+            <div class="chat_messages">
+                <ul id="messages">
+                    <!-- <newmsg v-for="message in messages" :message="message"></newmsg> -->
+                </ul>
+            </div>
+    
+            <div class="chat_container">
+                <form id="chat_form">
+                    <input type="text" id="chat_msg" class="type_message" @focus="catchTextFocus" v-model="message" placeholder="Enter Message..." required autocomplete="off">
+                    
+                    <button class="send_msg" @click.prevent="dispatchMessage" type="submit" value="Send">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="/js/main.js" type="module" defer></script>
+</body>
+</html>

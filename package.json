@@ -1,0 +1,22 @@
+{
+  "name": "yeom-s-chatapp",
+  "version": "1.0.0",
+  "description": "This is Chat app with node and express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "keywords": [
+    "chat",
+    "socket",
+    "node",
+    "express"
+  ],
+  "author": "SY",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "socket.io": "^4.6.0"
+  }
+}
